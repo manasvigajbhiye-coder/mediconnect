@@ -241,7 +241,7 @@ function StarRating({ rating }) {
 }
 
 function Toast({ msg, onClose }) {
-  useEffect(()=>{ const t=setTimeout(onClose,3500); return ()=>clearTimeout(t); },[]);
+  useEffect(()=>{ const t=setTimeout(onClose,3500); return ()=>clearTimeout(t); },[onClose]);
   return (
     <div style={{ position:"fixed", top:20, right:20, zIndex:9999, background:"#2ECC8F", color:"#fff",
       padding:"14px 20px", borderRadius:10, boxShadow:"0 4px 20px rgba(0,0,0,0.15)",
@@ -1402,7 +1402,7 @@ function ConsultationRoom({ surface, text, muted, dark }) {
   };
 
   useEffect(()=>{ chatEndRef.current?.scrollIntoView({behavior:"smooth"}); },[messages,chatOpen]);
-  useEffect(()=>()=>{ if(timerRef.current) clearInterval(timerRef.current); if(stream&&stream!=="demo") stream.getTracks().forEach(t=>t.stop()); },[]);
+  useEffect(()=>()=>{ if(timerRef.current) clearInterval(timerRef.current); if(stream&&stream!=="demo") stream.getTracks().forEach(t=>t.stop()); },[stream]);
 
   const fmt = (s) => `${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
   const sendMsg = () => {
