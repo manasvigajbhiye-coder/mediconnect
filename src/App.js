@@ -2515,7 +2515,6 @@ function AIChatbot({ dark, onClose }) {
   const surface = dark?"#162837":"#fff";
   const bg = dark?"#0D1F2D":"#F0F7FA";
   const text = dark?"#E2EEF5":"#0D2B3E";
-  const muted = dark?"#6B8EA3":"#6B8EA3";
 
   useEffect(()=>{ endRef.current?.scrollIntoView({behavior:"smooth"}); },[messages]);
 
